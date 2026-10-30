@@ -81,6 +81,11 @@ public class Main {
     public static void showNeighbors() {
         System.out.print("Enter a word: ");
         String w = s.next().toLowerCase();
-        neighbors.getNeighbors(w);
+        ArrayList<String> cleaned = BookLoader.tokenize(w);
+        if(cleaned.isEmpty()){
+            System.out.println("Wrong input");
+            return;
+        }
+        neighbors.getNeighbors(cleaned.get(0)); 
     }
 }

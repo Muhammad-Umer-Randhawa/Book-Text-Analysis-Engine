@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 // Loads the book from a file and cleans it into a list of lowercase words.
 public class BookLoader {
-
     private static boolean isWordChar(char c) {
         if(Character.isLetterOrDigit(c)){
             return true;
@@ -16,7 +15,6 @@ public class BookLoader {
         }
         return false;
     }
-
     public static ArrayList<String> tokenize(String line) {
         ArrayList<String> words = new ArrayList<>();   // permanent box
         StringBuilder temp = new StringBuilder();      // temporary box

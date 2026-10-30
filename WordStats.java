@@ -32,7 +32,7 @@ public class WordStats {
     }
 
     // Prints the n most used words with their counts.
-    // Time: O(N^2 * U) -> slow for big N, a sorted version comes in Task 5
+    // Time: O(n^2)
     public void printTopWords(int n) {
         ArrayList<String> picked = new ArrayList<>();
         ArrayList<String> keys = table.getKeys();
