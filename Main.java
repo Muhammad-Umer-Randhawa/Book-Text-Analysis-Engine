@@ -12,23 +12,25 @@ public class Main {
     static ArrayList<String> words;
     static WordStats stats;
     static NeighborIndex neighbors;
+    static Trie trie;
 
     public static void main(String[] args) throws Exception {
+        if (System.getProperty("os.name").toLowerCase().contains("win")) { // This is the safety net for any other non-English character that console has trouble rendering
+            new ProcessBuilder("cmd", "/c", "chcp 65001 > nul").inheritIO().start().waitFor();
+        }
         System.setOut(new PrintStream(System.out, true, "UTF-8"));
-
         if (!loadBook()) return;
-
+        printBanner();
         boolean do_again = true;
         while (do_again) {
-            System.out.println("================================================");
-            System.out.println("         Book Text Analytics Engine");
-            System.out.println("================================================");
             System.out.println("1. View total word count");
             System.out.println("2: View the # of unique words(non duplicate words)");
             System.out.println("3: View the count of N specific most occuring words");
             System.out.println("4: View the neighbors of a word");
+            System.out.println("5. Search similar words");
             System.out.println("0: Exit");
-            System.out.println("What do you wanna do? ");
+            System.out.print("What do you wanna do? ");
+            System.out.println();
 
             try {
                 int choice = s.nextInt();
@@ -37,6 +39,7 @@ public class Main {
                     case 2: showUniqueWords();  break;
                     case 3: showTopWords();     break;
                     case 4: showNeighbors();    break;
+                    case 5: searchSimilar();    break;
                     case 0: do_again = false;   break;
                     default: System.out.println("Invalid option, choose 0-4."); break;
                 }
@@ -47,7 +50,28 @@ public class Main {
         }
         s.close();
     }
-
+    public static void printBanner(){
+        System.out.println("   ____              _      _____         _");
+        System.out.println("  | __ )  ___   ___ | | __ |_   _|____  _| |_");
+        System.out.println("  |  _ \\ / _ \\ / _ \\| |/ /   | |/ _ \\ \\/ / __|");
+        System.out.println("  | |_) | (_) | (_) |   <    | |  __/>  <| |_");
+        System.out.println("  |____/ \\___/ \\___/|_|\\_\\   |_|\\___/_/\\_\\\\__|");
+        System.out.println("");
+        System.out.println("      _                _       _   _");
+        System.out.println("     / \\   _ __   __ _| |_   _| |_(_) ___ ___");
+        System.out.println("    / _ \\ | '_ \\ / _` | | | | | __| |/ __/ __|");
+        System.out.println("   / ___ \\| | | | (_| | | |_| | |_| | (__\\__ \\");
+        System.out.println("  /_/   \\_\\_| |_|\\__,_|_|\\__, |\\__|_|\\___|___/");
+        System.out.println("                         |___/");
+        System.out.println("");
+        System.out.println("         _____             _");
+        System.out.println("        | ____|_ __   __ _(_)_ __   ___");
+        System.out.println("        |  _| | '_ \\ / _` | | '_ \\ / _ \\");
+        System.out.println("        | |___| | | | (_| | | | | |  __/");
+        System.out.println("        |_____|_| |_|\\__, |_|_| |_|\\___|");
+        System.out.println("                     |___/");
+        System.out.println();
+    }
     // Loads the book and builds the structures once. Returns false if the file failed.
     public static boolean loadBook() {
         String filePath = "D:\\DSA in JAVA 3rd SEM\\Project\\Book Text Analytics Engine\\Great_Expectations.txt";
@@ -57,6 +81,10 @@ public class Main {
         }
         stats = new WordStats(words);
         neighbors = new NeighborIndex(words);
+        trie = new Trie();
+        for (String w : stats.getUniqueWordList()) {
+            trie.insert(w);
+        }
         return true;
     }
 
@@ -87,5 +115,12 @@ public class Main {
             return;
         }
         neighbors.getNeighbors(cleaned.get(0)); 
+    }
+    public static void searchSimilar(){
+        System.out.print("Enter a prefix: ");
+        String p = s.next().toLowerCase();
+        ArrayList<String> found = trie.getWordsWithPrefix(p);
+        System.out.println(found.size() + " words start with \"" + p + "\":");
+        System.out.println(found);
     }
 }

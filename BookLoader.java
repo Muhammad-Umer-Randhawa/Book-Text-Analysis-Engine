@@ -10,7 +10,7 @@ public class BookLoader {
         if(Character.isLetterOrDigit(c)){
             return true;
         }
-        if(c == 39 || c == 45 || c == 8217){
+        if(c == 39 || c == 45 || c == 8217 ){
             return true;
         }
         return false;
@@ -21,6 +21,7 @@ public class BookLoader {
         for (int i = 0; i < line.length(); i++) {
             char c = line.charAt(i);
             if (isWordChar(c)) {
+                if (c == 8217) c = '\'';   // curly apostrophe -> straight apostrophe
                 temp.append(c);
             }
             else {

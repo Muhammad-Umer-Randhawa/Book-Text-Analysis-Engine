@@ -55,4 +55,7 @@ public class WordStats {
             System.out.println("It's count: " + bestCount);
         }
     }
+    public ArrayList<String> getUniqueWordList() {
+        return table.getKeys();
+    }
 }
