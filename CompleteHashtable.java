@@ -1,32 +1,39 @@
+
 // this one uses open addressing (linear probing) to resolve collisions.
 import java.util.ArrayList;
 
 public class CompleteHashtable {
-    private class Entry{
-      Object key;
-      Object value;
-      Entry(Object k, Object v){
-        key = k;
-        value = v;
-      }
+    private class Entry {
+        Object key;
+        Object value;
+
+        Entry(Object k, Object v) {
+            key = k;
+            value = v;
+        }
     }
-    private int hash(Object key){
-        if(key == null) throw new IllegalArgumentException();
+
+    private int hash(Object key) {
+        if (key == null)
+            throw new IllegalArgumentException();
         return (key.hashCode() & 0x7FFFFFFF) % entries.length;
     }
-    private int nextProbe(int h, int i){
+
+    private int nextProbe(int h, int i) {
         return (h + i) % entries.length;
     }
-    private void rehash(){
+
+    private void rehash() {
         Entry[] oldEntries = entries;
         entries = new Entry[2 * oldEntries.length + 1];
-        for(int k=0; k<oldEntries.length; k++){
+        for (int k = 0; k < oldEntries.length; k++) {
             Entry entry = oldEntries[k];
-            if(entry == null || entry == NIL) continue;
+            if (entry == null || entry == NIL)
+                continue;
             int h = hash(entry.key);
-            for(int i=0; i<entries.length; i++){
+            for (int i = 0; i < entries.length; i++) {
                 int j = nextProbe(h, i);
-                if(entries[j] == null){
+                if (entries[j] == null) {
                     entries[j] = entry;
                     break;
                 }
@@ -34,46 +41,56 @@ public class CompleteHashtable {
         }
         used = size;
     }
+
     private Entry[] entries;
     private int size, used;
     private float loadFactor;
     private final Entry NIL = new Entry(null, null);
 
-    public CompleteHashtable(int capacity, float loadFactor){
-      entries = new Entry[capacity];
-      this.loadFactor = loadFactor;
+    public CompleteHashtable(int capacity, float loadFactor) {
+        entries = new Entry[capacity];
+        this.loadFactor = loadFactor;
     }
-    public CompleteHashtable(int capacity){
+
+    public CompleteHashtable(int capacity) {
         this(capacity, 0.75f);
     }
-    public CompleteHashtable(){
+
+    public CompleteHashtable() {
         this(101);
     }
-    public Object get(Object key){
+
+    public Object get(Object key) {
         int h = hash(key);
-        for(int i=0; i<entries.length; i++){
+        for (int i = 0; i < entries.length; i++) {
             int j = nextProbe(h, i);
             Entry entry = entries[j];
-            if(entry == null) return null;
-            if(entry == NIL) continue;
-            if(entry.key.equals(key)) return entry.value;
+            if (entry == null)
+                return null;
+            if (entry == NIL)
+                continue;
+            if (entry.key.equals(key))
+                return entry.value;
         }
         return null;
     }
-    public Object put(Object key, Object value){
-        if(used > loadFactor * entries.length) rehash();
+
+    public Object put(Object key, Object value) {
+        if (used > loadFactor * entries.length)
+            rehash();
         int h = hash(key);
-        for(int i = 0; i< entries.length; i++){
+        for (int i = 0; i < entries.length; i++) {
             int j = nextProbe(h, i);
             Entry entry = entries[j];
-            if(entry == null){
+            if (entry == null) {
                 entries[j] = new Entry(key, value);
                 ++size;
                 ++used;
                 return null;
             }
-            if(entry == NIL) continue;
-            if(entry.key.equals(key)){
+            if (entry == NIL)
+                continue;
+            if (entry.key.equals(key)) {
                 Object oldValue = entry.value;
                 entry.value = value;
                 return oldValue;
@@ -81,14 +98,17 @@ public class CompleteHashtable {
         }
         return null;
     }
-    public Object remove(Object key){
+
+    public Object remove(Object key) {
         int h = hash(key);
-        for(int i=0; i<entries.length; i++){
+        for (int i = 0; i < entries.length; i++) {
             int j = nextProbe(h, i);
             Entry entry = entries[j];
-            if(entry == null) break;
-            if(entry == NIL) continue;
-            if(entry.key.equals(key)){
+            if (entry == null)
+                break;
+            if (entry == NIL)
+                continue;
+            if (entry.key.equals(key)) {
                 Object oldValue = entry.value;
                 entries[j] = NIL;
                 --size;
@@ -97,17 +117,22 @@ public class CompleteHashtable {
         }
         return null;
     }
-    public int size(){
+
+    public int size() {
         return size;
     }
-    public void printAll(){
-        for(int i=0; i<entries.length; i++){
-            if(entries[i] == null || entries[i] == NIL) continue;
+
+    public void printAll() {
+        for (int i = 0; i < entries.length; i++) {
+            if (entries[i] == null || entries[i] == NIL)
+                continue;
             System.out.println(entries[i].key + " " + entries[i].value);
         }
     }
+
     // Returns a list of all the keys stored in the table.
-    // Time: O(capacity) -> it looks at every slot of the array, including the empty ones
+    // Time: O(capacity) -> it looks at every slot of the array, including the empty
+    // ones
     public ArrayList<String> getKeys() {
 
         // An empty list that will collect the keys we find.
@@ -116,8 +141,10 @@ public class CompleteHashtable {
         // Visit every slot of the array, one by one. i is the slot number.
         for (int i = 0; i < entries.length; i++) {
 
-            // Empty slot (never used) or removed slot (NIL): nothing to collect, go to the next slot.
-            if (entries[i] == null || entries[i] == NIL) continue;
+            // Empty slot (never used) or removed slot (NIL): nothing to collect, go to the
+            // next slot.
+            if (entries[i] == null || entries[i] == NIL)
+                continue;
 
             // A real entry: take its key and add it to the list.
             // (The cast is needed because keys are stored as plain Objects.)

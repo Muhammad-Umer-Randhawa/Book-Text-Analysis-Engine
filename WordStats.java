@@ -36,12 +36,14 @@ public class WordStats {
     public void printTopWords(int n) {
         ArrayList<String> picked = new ArrayList<>();
         ArrayList<String> keys = table.getKeys();
-        if (n > keys.size()) n = keys.size();
+        if (n > keys.size())
+            n = keys.size();
         for (int i = 0; i < n; i++) {
             String bestWord = null;
             int bestCount = 0;
             for (String w : keys) {
-                if (picked.contains(w)) continue;
+                if (picked.contains(w))
+                    continue;
                 Object a = table.get(w);
                 int count = (Integer) a;
                 if (count > bestCount) {
@@ -49,12 +51,14 @@ public class WordStats {
                     bestCount = count;
                 }
             }
-            if (bestWord == null) break;
+            if (bestWord == null)
+                break;
             picked.add(bestWord);
             System.out.println("Most appeared word: " + bestWord);
             System.out.println("It's count: " + bestCount);
         }
     }
+
     public ArrayList<String> getUniqueWordList() {
         return table.getKeys();
     }

@@ -1,29 +1,33 @@
 import java.util.ArrayList;
+
 // ---- Task 3 --------
 public class Trie {
     private static class TrieNode {
         TrieNode[] children = new TrieNode[39];
         boolean isEndOfWord;
     }
+
     private TrieNode root = new TrieNode();
-    private int indexOf(char c){    
-        if(c >= 'a' && c <='z'){
+
+    private int indexOf(char c) {
+        if (c >= 'a' && c <= 'z') {
             return c - 'a';
         }
-        if(c >= '0' && c <= '9'){
+        if (c >= '0' && c <= '9') {
             return c - '0' + 26;
         }
-        if(c == '\''){
+        if (c == '\'') {
             return 36;
         }
-        if(c == '-'){
+        if (c == '-') {
             return 37;
         }
-        if(c == 8217){
+        if (c == 8217) {
             return 38;
         }
         return -1;
     }
+
     private void collectWords(TrieNode node, StringBuilder prefix, ArrayList<String> result) {
         if (node == null) {
             return;
@@ -41,6 +45,7 @@ public class Trie {
             }
         }
     }
+
     private char getCharacterForIndex(int index) {
         if (index >= 0 && index < 26) {
             return (char) ('a' + index);
@@ -59,11 +64,13 @@ public class Trie {
         }
         return 0;
     }
+
     public void insert(String word) {
         TrieNode current = root;
         for (int i = 0; i < word.length(); i++) {
             int index = indexOf(word.charAt(i));
-            if (index == -1) return;   // letter is outside our 39 boxes, skip this word
+            if (index == -1)
+                return; // letter is outside our 39 boxes, skip this word
             if (current.children[index] == null) {
                 current.children[index] = new TrieNode();
             }
@@ -71,6 +78,7 @@ public class Trie {
         }
         current.isEndOfWord = true;
     }
+
     public ArrayList<String> getWordsWithPrefix(String prefix) {
         ArrayList<String> result = new ArrayList<>();
         TrieNode node = root;
@@ -85,5 +93,5 @@ public class Trie {
         collectWords(node, prefixBuilder, result);
         return result;
     }
-    
+
 }

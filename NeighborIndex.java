@@ -18,8 +18,8 @@ public class NeighborIndex {
         for (int i = 0; i < words.size() - 1; i++) {
             String current = words.get(i);
             String next = words.get(i + 1);
-            addPair(nextTable, current, next);   // next comes after current
-            addPair(prevTable, next, current);   // current comes before next
+            addPair(nextTable, current, next); // next comes after current
+            addPair(prevTable, next, current); // current comes before next
         }
     }
 
@@ -34,12 +34,15 @@ public class NeighborIndex {
         printNeighborList("Words that come BEFORE \"" + word + "\":", prevTable, word);
     }
 
-    // HELPER: remembers that "neighbor" appeared right next to "word" one more time.
-    // Example: addPair(nextTable, "dark", "night") -> "night" came right after "dark".
+    // HELPER: remembers that "neighbor" appeared right next to "word" one more
+    // time.
+    // Example: addPair(nextTable, "dark", "night") -> "night" came right after
+    // "dark".
     // Time: O(1) -> a few quick lookups, no loops
     private void addPair(CompleteHashtable t, String word, String neighbor) {
 
-        // An empty variable. Later it will point to the inner table that belongs to "word".
+        // An empty variable. Later it will point to the inner table that belongs to
+        // "word".
         CompleteHashtable neighbors;
 
         // Ask t: "is anything stored under this word?"
@@ -78,7 +81,8 @@ public class NeighborIndex {
     }
 
     // HELPER: prints one list of neighbors with their counts.
-    // title = the heading to print, t = nextTable or prevTable, word = the word we look up.
+    // title = the heading to print, t = nextTable or prevTable, word = the word we
+    // look up.
     // Time: O(d) -> prints each of the d neighbors once
     private void printNeighborList(String title, CompleteHashtable t, String word) {
 
@@ -89,18 +93,20 @@ public class NeighborIndex {
         Object inner = t.get(word);
 
         if (inner == null) {
-            // NOT FOUND: the word has no neighbors on this side (it is at the edge of the book).
+            // NOT FOUND: the word has no neighbors on this side (it is at the edge of the
+            // book).
             System.out.println("  (none)");
-            return;   // stop the method here, nothing below runs
+            return; // stop the method here, nothing below runs
         }
 
         // FOUND: neighbors points to the word's inner table.
         CompleteHashtable neighbors = (CompleteHashtable) inner;
 
-        // getKeys() gives the list of all neighbor words. The loop runs once for each one.
+        // getKeys() gives the list of all neighbor words. The loop runs once for each
+        // one.
         for (String n : neighbors.getKeys()) {
 
-            // Look up this neighbor's count and print one line, for example:   night -> 2
+            // Look up this neighbor's count and print one line, for example: night -> 2
             System.out.println("  " + n + " -> " + neighbors.get(n));
         }
     }
