@@ -106,12 +106,25 @@ public class CompleteHashtable {
             System.out.println(entries[i].key + " " + entries[i].value);
         }
     }
+    // Returns a list of all the keys stored in the table.
+    // Time: O(capacity) -> it looks at every slot of the array, including the empty ones
     public ArrayList<String> getKeys() {
+
+        // An empty list that will collect the keys we find.
         ArrayList<String> keys = new ArrayList<>();
+
+        // Visit every slot of the array, one by one. i is the slot number.
         for (int i = 0; i < entries.length; i++) {
+
+            // Empty slot (never used) or removed slot (NIL): nothing to collect, go to the next slot.
             if (entries[i] == null || entries[i] == NIL) continue;
+
+            // A real entry: take its key and add it to the list.
+            // (The cast is needed because keys are stored as plain Objects.)
             keys.add((String) entries[i].key);
         }
+
+        // All slots visited, so give back the list.
         return keys;
     }
 }
