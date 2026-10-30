@@ -3,7 +3,7 @@ import java.util.ArrayList;
 // Task 5: Benchmarks build time and memory for each task, then
 // compares fast (Trie / InvertedIndex) vs slow (linear scan / raw scan).
 // Run: java Task5 [prefix] [word] [startPage] [endPage]
-public class Task5 {
+public class Benchmarker {
 
     static ArrayList<String> words;
     static WordStats stats;
