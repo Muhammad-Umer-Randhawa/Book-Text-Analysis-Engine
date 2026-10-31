@@ -72,14 +72,18 @@ public class InvertedIndex {
 
     // Silent boolean version of searchInPageRange — used by Task 5 benchmarking
     // so the timed loop does not print 1000 lines to the console.
-    // Time: O(log u + k)
+    // Time: average O(1) for the map lookup, plus a short scan over the matching lines.
     public boolean hasWordInPageRange(String word, int startPage, int endPage) {
+        if (startPage < 1 || endPage < startPage) {
+            return false;
+        }
+        Object result = root.get(word);
+        if (result == null) {
+            return false;
+        }
         int startLine = (startPage - 1) * LINES_PER_PAGE + 1;
         int endLine = endPage * LINES_PER_PAGE;
-        Object found = root.get(word);
-        if (found == null)
-            return false;
-        return ((LineLinkedList) found).hasLineInRange(startLine, endLine);
+        return ((LineLinkedList) result).hasLineInRange(startLine, endLine);
     }
 
     // ---- private helpers ----
@@ -90,20 +94,17 @@ public class InvertedIndex {
             int lineNumber = 0;
             while ((line = reader.readLine()) != null) {
                 lineNumber++;
-                // Reuse BookLoader.tokenize so cleaning rules are identical everywhere.
                 ArrayList<String> tokens = BookLoader.tokenize(line);
                 for (String word : tokens) {
-                    Object existing = root.get(word); // O(log u)
+                    Object existing = root.get(word);
                     LineLinkedList list;
                     if (existing == null) {
-                        // First time we see this word: create a list and insert into tree.
                         list = new LineLinkedList();
-                        root = root.grow(word, list); // O(log u)
+                        root = root.grow(word, list);
                     } else {
-                        // Word already has a list: just grab the reference.
                         list = (LineLinkedList) existing;
                     }
-                    list.addLine(lineNumber); // O(1) append
+                    list.addLine(lineNumber);
                 }
             }
         } catch (FileNotFoundException e) {

@@ -39,9 +39,9 @@ public class Trie {
             TrieNode child = node.children[i];
             if (child != null) {
                 char c = getCharacterForIndex(i);
-                prefix.append(c); // Append character
+                prefix.append(c);
                 collectWords(child, prefix, result);
-                prefix.deleteCharAt(prefix.length() - 1); // Backtrack (remove character)
+                prefix.deleteCharAt(prefix.length() - 1);
             }
         }
     }

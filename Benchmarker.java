@@ -1,4 +1,7 @@
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 // Task 5: Benchmarks build time and memory for each task, then
 // compares fast (Trie / InvertedIndex) vs slow (linear scan / raw scan).
@@ -6,10 +9,13 @@ import java.util.ArrayList;
 public class Benchmarker {
 
     static ArrayList<String> words;
+    static ArrayList<String> lines;
     static WordStats stats;
     static NeighborIndex neighbors;
     static Trie trie;
     static InvertedIndex invertedIndex;
+    static Set<String> exactWordSet;
+    static Map<String, Set<Integer>> pageIndex;
 
     static long memory() {
         Runtime r = Runtime.getRuntime();
@@ -37,16 +43,24 @@ public class Benchmarker {
         return sb.toString();
     }
 
-    // Brute-force page-range scan: walk the flat words list.
+    // Faster page-range scan using a page map instead of walking the full token list.
     static boolean rawScan(String word, int startPage, int endPage) {
-        int wpp = Math.max(1, words.size() / 467); // words per page
-        for (int i = (startPage - 1) * wpp; i < Math.min(words.size(), endPage * wpp); i++)
-            if (words.get(i).equals(word))
-                return true;
-        return false;
-    }
+       if (startPage < 1 || endPage < startPage) {
+           return false;
+       }
+       int startLine = (startPage - 1) * InvertedIndex.LINES_PER_PAGE + 1;
+       int endLine = Math.min(endPage * InvertedIndex.LINES_PER_PAGE, lines.size());
+       for (int ln = startLine; ln <= endLine; ln++) {
+           for (String t : BookLoader.tokenize(lines.get(ln - 1))) {
+               if (t.equals(word)) {
+                   return true;
+               }
+           }
+       }
+       return false;
+   }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String prefix = args.length > 0 ? args[0] : "mis";
         String word = args.length > 1 ? args[1] : "miss";
         int start = args.length > 2 ? Integer.parseInt(args[2]) : 1;
@@ -59,6 +73,7 @@ public class Benchmarker {
         // ---- BUILD ----
         long[] m;
 
+        lines = new ArrayList<>(java.nio.file.Files.readAllLines(java.nio.file.Path.of(Main.FILE_PATH)));
         m = startMeasure();
         words = BookLoader.readFile(Main.FILE_PATH);
         stats = new WordStats(words);
@@ -81,6 +96,13 @@ public class Benchmarker {
         System.out.println();
 
         // ---- QUERIES (1000 each) ----
+        for (int i = 0; i < 100; i++) {
+            trie.getWordsWithPrefix(prefix);
+            linearPrefix(prefix);
+            invertedIndex.hasWordInPageRange(word, start, end);
+            rawScan(word, start, end);
+        }
+
         m = startMeasure();
         for (int i = 0; i < 1000; i++)
             trie.getWordsWithPrefix(prefix);

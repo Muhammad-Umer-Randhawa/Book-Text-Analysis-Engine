@@ -1,0 +1,533 @@
+java Main.java
+========================================================================
+                      Book Text Analytics Engine                        
+========================================================================
+1. View total word count
+2: View the # of unique words(non duplicate words)
+3: View the count of N specific most occuring words
+4: View the neighbors of a word
+5. Search similar words
+6: Search word by page range (Inverted Index)
+0: Exit
+What do you wanna do? 
+1
+Total words in the book: 185583
+1. View total word count
+2: View the # of unique words(non duplicate words)
+3: View the count of N specific most occuring words
+4: View the neighbors of a word
+5. Search similar words
+6: Search word by page range (Inverted Index)
+0: Exit
+What do you wanna do? 
+2
+Unique words in the book: 11491
+1. View total word count
+2: View the # of unique words(non duplicate words)
+3: View the count of N specific most occuring words
+4: View the neighbors of a word
+5. Search similar words
+6: Search word by page range (Inverted Index)
+0: Exit
+What do you wanna do? 
+3
+How many Top most used words in the book you want? 3
+Most appeared word: the
+It's count: 8143
+Most appeared word: and
+It's count: 7075
+Most appeared word: i
+It's count: 6488
+1. View total word count
+2: View the # of unique words(non duplicate words)
+3: View the count of N specific most occuring words
+4: View the neighbors of a word
+5. Search similar words
+6: Search word by page range (Inverted Index)
+0: Exit
+What do you wanna do? 
+4
+Enter a word: cat
+"cat" does not appear in the book.
+1. View total word count
+2: View the # of unique words(non duplicate words)
+3: View the count of N specific most occuring words
+4: View the neighbors of a word
+5. Search similar words
+6: Search word by page range (Inverted Index)
+0: Exit
+What do you wanna do? 
+4
+Enter a word: do
+Words that come AFTER "do":
+  something -> 5
+  any -> 1
+  throw -> 1
+  nothing -> 6
+  may -> 1
+  molly -> 1
+  this -> 4
+  on -> 1
+  or -> 1
+  look -> 2
+  ' -> 2
+  echoed -> 1
+  than -> 2
+  that -> 6
+  anything -> 6
+  not -> 28
+  him -> 1
+  now -> 5
+  you -> 112
+  his -> 1
+  he -> 1
+  four -> 1
+  miss -> 2
+  said -> 8
+  mum -> 1
+  caring -> 1
+  but -> 8
+  why -> 1
+  old -> 1
+  say -> 2
+  again -> 1
+  drop -> 1
+  neither -> 1
+  worse -> 1
+  a -> 2
+  very -> 3
+  hear -> 1
+  like -> 1
+  more -> 1
+  i -> 22
+  if -> 2
+  believe -> 1
+  agen -> 1
+  when -> 1
+  in -> 2
+  our -> 3
+  it -> 48
+  impossibilities -> 1
+  was -> 3
+  comb -> 1
+  as -> 8
+  at -> 1
+  come -> 1
+  so -> 17
+  indeed -> 1
+  well -> 4
+  one -> 1
+  under -> 2
+  does -> 1
+  pip -> 2
+  the -> 2
+  keep -> 1
+  them -> 1
+  then -> 2
+  complain -> 1
+  want -> 1
+  with -> 15
+  by -> 1
+  otherwise -> 2
+  though -> 1
+  to -> 4
+  touch -> 1
+  know -> 2
+  all -> 3
+  herbert -> 1
+  also -> 1
+  her -> 2
+  three -> 1
+  convicts -> 1
+  handsomely -> 2
+  yourself -> 2
+  for -> 9
+  mischief -> 1
+  without -> 4
+  try -> 1
+  me -> 9
+  stand -> 1
+  it's -> 1
+  better -> 3
+  assure -> 2
+  poor -> 1
+  myself -> 1
+  my -> 2
+  and -> 7
+  crawling -> 1
+  how -> 1
+  wrong -> 1
+  feel -> 1
+  let -> 1
+  what -> 5
+  we -> 2
+  appear -> 1
+  no -> 6
+  give -> 1
+Words that come BEFORE "do":
+  wouldn't -> 2
+  did -> 1
+  long -> 1
+  still -> 1
+  man -> 1
+  leave -> 1
+  time -> 1
+  nothing -> 1
+  she -> 2
+  effectually -> 1
+  or -> 5
+  which -> 1
+  they'll -> 2
+  you'll -> 1
+  half-holiday -> 1
+  home -> 1
+  i'd -> 1
+  that'll -> 4
+  that -> 4
+  nor -> 1
+  question -> 1
+  not -> 5
+  honoured -> 1
+  anything -> 1
+  him -> 7
+  now -> 1
+  you -> 30
+  would -> 19
+  never -> 3
+  beer -> 1
+  provis -> 2
+  he -> 5
+  stock -> 1
+  said -> 2
+  well-grown -> 1
+  might -> 6
+  but -> 1
+  ever -> 1
+  why -> 3
+  we'll -> 1
+  beginning -> 1
+  two -> 1
+  intervals -> 1
+  i -> 49
+  tense -> 1
+  doubt -> 1
+  when -> 1
+  first-rater -> 1
+  is -> 2
+  it -> 3
+  matters -> 1
+  floor -> 1
+  shall -> 1
+  cannot -> 2
+  was -> 1
+  come -> 1
+  face -> 1
+  way -> 1
+  people -> 3
+  who'll -> 1
+  won't -> 4
+  jaggers -> 1
+  hardly -> 1
+  so -> 1
+  can -> 8
+  character -> 1
+  fact -> 1
+  track -> 1
+  should -> 2
+  then -> 1
+  wrote -> 1
+  hand -> 2
+  where -> 2
+  drummle -> 1
+  really -> 4
+  boy -> 1
+  off -> 1
+  minds -> 2
+  they -> 3
+  to -> 106
+  could -> 13
+  difficulty -> 1
+  i'll -> 1
+  miles -> 1
+  fortunes -> 1
+  it'll -> 1
+  determined -> 1
+  all -> 1
+  also -> 1
+  will -> 4
+  baby -> 1
+  her -> 2
+  voice -> 1
+  speaker -> 1
+  don't -> 1
+  possibly -> 1
+  indentures -> 1
+  me -> 3
+  short -> 1
+  convict -> 1
+  estella -> 3
+  often -> 1
+  soldiers -> 1
+  scarcely -> 1
+  and -> 12
+  how -> 15
+  manners -> 1
+  pray -> 1
+  joe -> 1
+  much -> 1
+  eyes -> 1
+  what -> 33
+  we -> 2
+  can't -> 2
+  no -> 1
+1. View total word count
+2: View the # of unique words(non duplicate words)
+3: View the count of N specific most occuring words
+4: View the neighbors of a word
+5. Search similar words
+6: Search word by page range (Inverted Index)
+0: Exit
+What do you wanna do? 
+5
+Enter a prefix: 
+come
+2 words start with "come":
+[come, comes]
+1. View total word count
+2: View the # of unique words(non duplicate words)
+3: View the count of N specific most occuring words
+4: View the neighbors of a word
+5. Search similar words
+6: Search word by page range (Inverted Index)
+0: Exit
+What do you wanna do? 
+6
+  a) Search word in a specific page range
+  b) Show ALL occurrences of a word
+Choice (a/b): a
+Enter word: die
+Start page (1-467): 1
+End page   (1-467): 467
+"die" appears 11 time(s) in pages 1 to 467:
+  Line 715  (Page ~16)
+  Line 1516  (Page ~34)
+  Line 2055  (Page ~46)
+  Line 2987  (Page ~67)
+  Line 3555  (Page ~79)
+  Line 17898  (Page ~398)
+  Line 17917  (Page ~399)
+  Line 18759  (Page ~417)
+  Line 19209  (Page ~427)
+  Line 19231  (Page ~428)
+  Line 19399  (Page ~432)
+1. View total word count
+2: View the # of unique words(non duplicate words)
+3: View the count of N specific most occuring words
+4: View the neighbors of a word
+5. Search similar words
+6: Search word by page range (Inverted Index)
+0: Exit
+What do you wanna do? 
+6
+  a) Search word in a specific page range
+  b) Show ALL occurrences of a word
+Choice (a/b): b
+Enter word: so
+"so" appears on 752 unique line(s):
+  Line 80    (Page   2)  |  Line 144   (Page   4)  |  Line 187   (Page   5)  |  Line 199   (Page   5)
+  Line 206   (Page   5)  |  Line 210   (Page   5)  |  Line 239   (Page   6)  |  Line 268   (Page   6)
+  Line 277   (Page   7)  |  Line 278   (Page   7)  |  Line 311   (Page   7)  |  Line 457   (Page  11)
+  Line 488   (Page  11)  |  Line 511   (Page  12)  |  Line 515   (Page  12)  |  Line 571   (Page  13)
+  Line 600   (Page  14)  |  Line 635   (Page  15)  |  Line 656   (Page  15)  |  Line 663   (Page  15)
+  Line 671   (Page  15)  |  Line 694   (Page  16)  |  Line 715   (Page  16)  |  Line 729   (Page  17)
+  Line 742   (Page  17)  |  Line 746   (Page  17)  |  Line 815   (Page  19)  |  Line 863   (Page  20)
+  Line 899   (Page  20)  |  Line 912   (Page  21)  |  Line 927   (Page  21)  |  Line 988   (Page  22)
+  Line 1010  (Page  23)  |  Line 1024  (Page  23)  |  Line 1047  (Page  24)  |  Line 1056  (Page  24)
+  Line 1078  (Page  24)  |  Line 1103  (Page  25)  |  Line 1125  (Page  25)  |  Line 1272  (Page  29)
+  Line 1282  (Page  29)  |  Line 1314  (Page  30)  |  Line 1330  (Page  30)  |  Line 1343  (Page  30)
+  Line 1348  (Page  30)  |  Line 1350  (Page  30)  |  Line 1438  (Page  32)  |  Line 1439  (Page  32)
+  Line 1449  (Page  33)  |  Line 1484  (Page  33)  |  Line 1532  (Page  35)  |  Line 1568  (Page  35)
+  Line 1577  (Page  36)  |  Line 1580  (Page  36)  |  Line 1628  (Page  37)  |  Line 1629  (Page  37)
+  Line 1632  (Page  37)  |  Line 1639  (Page  37)  |  Line 1659  (Page  37)  |  Line 1667  (Page  38)
+  Line 1711  (Page  39)  |  Line 1805  (Page  41)  |  Line 1883  (Page  42)  |  Line 1897  (Page  43)
+  Line 1902  (Page  43)  |  Line 1904  (Page  43)  |  Line 1916  (Page  43)  |  Line 1940  (Page  44)
+  Line 1943  (Page  44)  |  Line 2026  (Page  46)  |  Line 2070  (Page  46)  |  Line 2098  (Page  47)
+  Line 2185  (Page  49)  |  Line 2193  (Page  49)  |  Line 2196  (Page  49)  |  Line 2198  (Page  49)
+  Line 2199  (Page  49)  |  Line 2226  (Page  50)  |  Line 2238  (Page  50)  |  Line 2265  (Page  51)
+  Line 2288  (Page  51)  |  Line 2315  (Page  52)  |  Line 2345  (Page  53)  |  Line 2429  (Page  54)
+  Line 2437  (Page  55)  |  Line 2438  (Page  55)  |  Line 2446  (Page  55)  |  Line 2447  (Page  55)
+  Line 2457  (Page  55)  |  Line 2468  (Page  55)  |  Line 2476  (Page  56)  |  Line 2487  (Page  56)
+  Line 2488  (Page  56)  |  Line 2490  (Page  56)  |  Line 2503  (Page  56)  |  Line 2533  (Page  57)
+  Line 2544  (Page  57)  |  Line 2545  (Page  57)  |  Line 2583  (Page  58)  |  Line 2588  (Page  58)
+  Line 2592  (Page  58)  |  Line 2594  (Page  58)  |  Line 2599  (Page  58)  |  Line 2600  (Page  58)
+  Line 2605  (Page  58)  |  Line 2615  (Page  59)  |  Line 2639  (Page  59)  |  Line 2648  (Page  59)
+  Line 2662  (Page  60)  |  Line 2679  (Page  60)  |  Line 2692  (Page  60)  |  Line 2762  (Page  62)
+  Line 2787  (Page  62)  |  Line 2866  (Page  64)  |  Line 2887  (Page  65)  |  Line 2932  (Page  66)
+  Line 2935  (Page  66)  |  Line 2962  (Page  66)  |  Line 2987  (Page  67)  |  Line 3102  (Page  69)
+  Line 3151  (Page  71)  |  Line 3236  (Page  72)  |  Line 3363  (Page  75)  |  Line 3384  (Page  76)
+  Line 3387  (Page  76)  |  Line 3388  (Page  76)  |  Line 3432  (Page  77)  |  Line 3434  (Page  77)
+  Line 3496  (Page  78)  |  Line 3532  (Page  79)  |  Line 3579  (Page  80)  |  Line 3623  (Page  81)
+  Line 3648  (Page  82)  |  Line 3700  (Page  83)  |  Line 3746  (Page  84)  |  Line 3809  (Page  85)
+  Line 3833  (Page  86)  |  Line 3836  (Page  86)  |  Line 3856  (Page  86)  |  Line 3880  (Page  87)
+  Line 3882  (Page  87)  |  Line 3902  (Page  87)  |  Line 3989  (Page  89)  |  Line 4006  (Page  90)
+  Line 4009  (Page  90)  |  Line 4027  (Page  90)  |  Line 4043  (Page  90)  |  Line 4063  (Page  91)
+  Line 4114  (Page  92)  |  Line 4120  (Page  92)  |  Line 4137  (Page  92)  |  Line 4139  (Page  92)
+  Line 4168  (Page  93)  |  Line 4173  (Page  93)  |  Line 4179  (Page  93)  |  Line 4180  (Page  93)
+  Line 4196  (Page  94)  |  Line 4282  (Page  96)  |  Line 4283  (Page  96)  |  Line 4285  (Page  96)
+  Line 4417  (Page  99)  |  Line 4491  (Page 100)  |  Line 4568  (Page 102)  |  Line 4593  (Page 103)
+  Line 4825  (Page 108)  |  Line 4911  (Page 110)  |  Line 4918  (Page 110)  |  Line 4976  (Page 111)
+  Line 4995  (Page 111)  |  Line 5006  (Page 112)  |  Line 5075  (Page 113)  |  Line 5085  (Page 113)
+  Line 5086  (Page 114)  |  Line 5109  (Page 114)  |  Line 5112  (Page 114)  |  Line 5214  (Page 116)
+  Line 5283  (Page 118)  |  Line 5344  (Page 119)  |  Line 5368  (Page 120)  |  Line 5404  (Page 121)
+  Line 5420  (Page 121)  |  Line 5421  (Page 121)  |  Line 5424  (Page 121)  |  Line 5433  (Page 121)
+  Line 5441  (Page 121)  |  Line 5468  (Page 122)  |  Line 5477  (Page 122)  |  Line 5481  (Page 122)
+  Line 5518  (Page 123)  |  Line 5580  (Page 124)  |  Line 5604  (Page 125)  |  Line 5623  (Page 125)
+  Line 5692  (Page 127)  |  Line 5762  (Page 129)  |  Line 5811  (Page 130)  |  Line 5869  (Page 131)
+  Line 5949  (Page 133)  |  Line 5959  (Page 133)  |  Line 5992  (Page 134)  |  Line 6007  (Page 134)
+  Line 6052  (Page 135)  |  Line 6071  (Page 135)  |  Line 6099  (Page 136)  |  Line 6111  (Page 136)
+  Line 6127  (Page 137)  |  Line 6133  (Page 137)  |  Line 6140  (Page 137)  |  Line 6158  (Page 137)
+  Line 6207  (Page 138)  |  Line 6217  (Page 139)  |  Line 6219  (Page 139)  |  Line 6232  (Page 139)
+  Line 6233  (Page 139)  |  Line 6238  (Page 139)  |  Line 6242  (Page 139)  |  Line 6293  (Page 140)
+  Line 6301  (Page 141)  |  Line 6302  (Page 141)  |  Line 6304  (Page 141)  |  Line 6397  (Page 143)
+  Line 6415  (Page 143)  |  Line 6445  (Page 144)  |  Line 6486  (Page 145)  |  Line 6487  (Page 145)
+  Line 6514  (Page 145)  |  Line 6543  (Page 146)  |  Line 6553  (Page 146)  |  Line 6578  (Page 147)
+  Line 6599  (Page 147)  |  Line 6627  (Page 148)  |  Line 6630  (Page 148)  |  Line 6647  (Page 148)
+  Line 6661  (Page 149)  |  Line 6674  (Page 149)  |  Line 6691  (Page 149)  |  Line 6702  (Page 149)
+  Line 6728  (Page 150)  |  Line 6729  (Page 150)  |  Line 6740  (Page 150)  |  Line 6832  (Page 152)
+  Line 6855  (Page 153)  |  Line 6866  (Page 153)  |  Line 6868  (Page 153)  |  Line 6878  (Page 153)
+  Line 6882  (Page 153)  |  Line 6889  (Page 154)  |  Line 7100  (Page 158)  |  Line 7134  (Page 159)
+  Line 7159  (Page 160)  |  Line 7198  (Page 160)  |  Line 7214  (Page 161)  |  Line 7216  (Page 161)
+  Line 7220  (Page 161)  |  Line 7226  (Page 161)  |  Line 7245  (Page 161)  |  Line 7250  (Page 162)
+  Line 7279  (Page 162)  |  Line 7284  (Page 162)  |  Line 7300  (Page 163)  |  Line 7331  (Page 163)
+  Line 7406  (Page 165)  |  Line 7433  (Page 166)  |  Line 7450  (Page 166)  |  Line 7451  (Page 166)
+  Line 7452  (Page 166)  |  Line 7454  (Page 166)  |  Line 7469  (Page 166)  |  Line 7513  (Page 167)
+  Line 7524  (Page 168)  |  Line 7531  (Page 168)  |  Line 7533  (Page 168)  |  Line 7586  (Page 169)
+  Line 7608  (Page 170)  |  Line 7643  (Page 170)  |  Line 7649  (Page 170)  |  Line 7651  (Page 171)
+  Line 7656  (Page 171)  |  Line 7740  (Page 172)  |  Line 7755  (Page 173)  |  Line 7757  (Page 173)
+  Line 7837  (Page 175)  |  Line 7887  (Page 176)  |  Line 7914  (Page 176)  |  Line 7934  (Page 177)
+  Line 7987  (Page 178)  |  Line 7992  (Page 178)  |  Line 8029  (Page 179)  |  Line 8088  (Page 180)
+  Line 8091  (Page 180)  |  Line 8095  (Page 180)  |  Line 8231  (Page 183)  |  Line 8239  (Page 184)
+  Line 8246  (Page 184)  |  Line 8259  (Page 184)  |  Line 8270  (Page 184)  |  Line 8439  (Page 188)
+  Line 8444  (Page 188)  |  Line 8475  (Page 189)  |  Line 8506  (Page 190)  |  Line 8560  (Page 191)
+  Line 8565  (Page 191)  |  Line 8589  (Page 191)  |  Line 8595  (Page 191)  |  Line 8611  (Page 192)
+  Line 8637  (Page 192)  |  Line 8641  (Page 193)  |  Line 8652  (Page 193)  |  Line 8661  (Page 193)
+  Line 8818  (Page 196)  |  Line 8829  (Page 197)  |  Line 8848  (Page 197)  |  Line 8917  (Page 199)
+  Line 8937  (Page 199)  |  Line 8993  (Page 200)  |  Line 9012  (Page 201)  |  Line 9025  (Page 201)
+  Line 9050  (Page 202)  |  Line 9051  (Page 202)  |  Line 9121  (Page 203)  |  Line 9129  (Page 203)
+  Line 9137  (Page 204)  |  Line 9150  (Page 204)  |  Line 9152  (Page 204)  |  Line 9215  (Page 205)
+  Line 9233  (Page 206)  |  Line 9237  (Page 206)  |  Line 9241  (Page 206)  |  Line 9267  (Page 206)
+  Line 9315  (Page 207)  |  Line 9340  (Page 208)  |  Line 9404  (Page 209)  |  Line 9413  (Page 210)
+  Line 9415  (Page 210)  |  Line 9419  (Page 210)  |  Line 9534  (Page 212)  |  Line 9546  (Page 213)
+  Line 9550  (Page 213)  |  Line 9595  (Page 214)  |  Line 9597  (Page 214)  |  Line 9626  (Page 214)
+  Line 9627  (Page 214)  |  Line 9660  (Page 215)  |  Line 9691  (Page 216)  |  Line 9707  (Page 216)
+  Line 9723  (Page 217)  |  Line 9753  (Page 217)  |  Line 9764  (Page 217)  |  Line 9834  (Page 219)
+  Line 9842  (Page 219)  |  Line 9849  (Page 219)  |  Line 9865  (Page 220)  |  Line 9888  (Page 220)
+  Line 9892  (Page 220)  |  Line 9909  (Page 221)  |  Line 9955  (Page 222)  |  Line 9994  (Page 223)
+  Line 10000 (Page 223)  |  Line 10047 (Page 224)  |  Line 10066 (Page 224)  |  Line 10102 (Page 225)
+  Line 10118 (Page 225)  |  Line 10134 (Page 226)  |  Line 10301 (Page 229)  |  Line 10333 (Page 230)
+  Line 10345 (Page 230)  |  Line 10363 (Page 231)  |  Line 10444 (Page 233)  |  Line 10455 (Page 233)
+  Line 10460 (Page 233)  |  Line 10489 (Page 234)  |  Line 10508 (Page 234)  |  Line 10509 (Page 234)
+  Line 10529 (Page 234)  |  Line 10530 (Page 234)  |  Line 10543 (Page 235)  |  Line 10544 (Page 235)
+  Line 10553 (Page 235)  |  Line 10569 (Page 235)  |  Line 10619 (Page 236)  |  Line 10660 (Page 237)
+  Line 10718 (Page 239)  |  Line 10784 (Page 240)  |  Line 10790 (Page 240)  |  Line 10800 (Page 240)
+  Line 10835 (Page 241)  |  Line 10839 (Page 241)  |  Line 10908 (Page 243)  |  Line 10917 (Page 243)
+  Line 10932 (Page 243)  |  Line 10969 (Page 244)  |  Line 11048 (Page 246)  |  Line 11066 (Page 246)
+  Line 11070 (Page 246)  |  Line 11090 (Page 247)  |  Line 11093 (Page 247)  |  Line 11165 (Page 249)
+  Line 11167 (Page 249)  |  Line 11191 (Page 249)  |  Line 11193 (Page 249)  |  Line 11238 (Page 250)
+  Line 11239 (Page 250)  |  Line 11264 (Page 251)  |  Line 11279 (Page 251)  |  Line 11287 (Page 251)
+  Line 11322 (Page 252)  |  Line 11329 (Page 252)  |  Line 11358 (Page 253)  |  Line 11366 (Page 253)
+  Line 11429 (Page 254)  |  Line 11434 (Page 255)  |  Line 11448 (Page 255)  |  Line 11450 (Page 255)
+  Line 11456 (Page 255)  |  Line 11474 (Page 255)  |  Line 11481 (Page 256)  |  Line 11500 (Page 256)
+  Line 11526 (Page 257)  |  Line 11537 (Page 257)  |  Line 11538 (Page 257)  |  Line 11555 (Page 257)
+  Line 11590 (Page 258)  |  Line 11603 (Page 258)  |  Line 11669 (Page 260)  |  Line 11706 (Page 261)
+  Line 11750 (Page 262)  |  Line 11771 (Page 262)  |  Line 11788 (Page 262)  |  Line 11802 (Page 263)
+  Line 11807 (Page 263)  |  Line 11828 (Page 263)  |  Line 11836 (Page 264)  |  Line 11856 (Page 264)
+  Line 11857 (Page 264)  |  Line 11868 (Page 264)  |  Line 11869 (Page 264)  |  Line 11870 (Page 264)
+  Line 11899 (Page 265)  |  Line 11987 (Page 267)  |  Line 12040 (Page 268)  |  Line 12043 (Page 268)
+  Line 12089 (Page 269)  |  Line 12106 (Page 270)  |  Line 12144 (Page 270)  |  Line 12165 (Page 271)
+  Line 12181 (Page 271)  |  Line 12192 (Page 271)  |  Line 12239 (Page 272)  |  Line 12244 (Page 273)
+  Line 12290 (Page 274)  |  Line 12317 (Page 274)  |  Line 12359 (Page 275)  |  Line 12447 (Page 277)
+  Line 12492 (Page 278)  |  Line 12493 (Page 278)  |  Line 12543 (Page 279)  |  Line 12557 (Page 280)
+  Line 12566 (Page 280)  |  Line 12575 (Page 280)  |  Line 12677 (Page 282)  |  Line 12713 (Page 283)
+  Line 12773 (Page 284)  |  Line 12818 (Page 285)  |  Line 12824 (Page 285)  |  Line 12838 (Page 286)
+  Line 12844 (Page 286)  |  Line 12866 (Page 286)  |  Line 12869 (Page 286)  |  Line 12889 (Page 287)
+  Line 12909 (Page 287)  |  Line 12955 (Page 288)  |  Line 12972 (Page 289)  |  Line 12976 (Page 289)
+  Line 12992 (Page 289)  |  Line 13012 (Page 290)  |  Line 13018 (Page 290)  |  Line 13059 (Page 291)
+  Line 13081 (Page 291)  |  Line 13094 (Page 291)  |  Line 13115 (Page 292)  |  Line 13116 (Page 292)
+  Line 13131 (Page 292)  |  Line 13152 (Page 293)  |  Line 13164 (Page 293)  |  Line 13173 (Page 293)
+  Line 13183 (Page 293)  |  Line 13218 (Page 294)  |  Line 13259 (Page 295)  |  Line 13309 (Page 296)
+  Line 13318 (Page 296)  |  Line 13331 (Page 297)  |  Line 13363 (Page 297)  |  Line 13387 (Page 298)
+  Line 13438 (Page 299)  |  Line 13451 (Page 299)  |  Line 13492 (Page 300)  |  Line 13512 (Page 301)
+  Line 13592 (Page 303)  |  Line 13594 (Page 303)  |  Line 13667 (Page 304)  |  Line 13698 (Page 305)
+  Line 13715 (Page 305)  |  Line 13761 (Page 306)  |  Line 13768 (Page 306)  |  Line 13776 (Page 307)
+  Line 13810 (Page 307)  |  Line 13863 (Page 309)  |  Line 13917 (Page 310)  |  Line 13925 (Page 310)
+  Line 13930 (Page 310)  |  Line 13931 (Page 310)  |  Line 13960 (Page 311)  |  Line 13962 (Page 311)
+  Line 13980 (Page 311)  |  Line 14012 (Page 312)  |  Line 14019 (Page 312)  |  Line 14053 (Page 313)
+  Line 14061 (Page 313)  |  Line 14069 (Page 313)  |  Line 14165 (Page 315)  |  Line 14177 (Page 316)
+  Line 14179 (Page 316)  |  Line 14218 (Page 316)  |  Line 14236 (Page 317)  |  Line 14252 (Page 317)
+  Line 14299 (Page 318)  |  Line 14321 (Page 319)  |  Line 14353 (Page 319)  |  Line 14377 (Page 320)
+  Line 14385 (Page 320)  |  Line 14390 (Page 320)  |  Line 14412 (Page 321)  |  Line 14413 (Page 321)
+  Line 14464 (Page 322)  |  Line 14479 (Page 322)  |  Line 14484 (Page 322)  |  Line 14510 (Page 323)
+  Line 14520 (Page 323)  |  Line 14577 (Page 324)  |  Line 14596 (Page 325)  |  Line 14600 (Page 325)
+  Line 14607 (Page 325)  |  Line 14635 (Page 326)  |  Line 14687 (Page 327)  |  Line 14725 (Page 328)
+  Line 14734 (Page 328)  |  Line 14759 (Page 328)  |  Line 14813 (Page 330)  |  Line 14864 (Page 331)
+  Line 14878 (Page 331)  |  Line 14912 (Page 332)  |  Line 14944 (Page 333)  |  Line 14970 (Page 333)
+  Line 15000 (Page 334)  |  Line 15030 (Page 334)  |  Line 15096 (Page 336)  |  Line 15098 (Page 336)
+  Line 15106 (Page 336)  |  Line 15110 (Page 336)  |  Line 15121 (Page 337)  |  Line 15123 (Page 337)
+  Line 15157 (Page 337)  |  Line 15227 (Page 339)  |  Line 15229 (Page 339)  |  Line 15234 (Page 339)
+  Line 15268 (Page 340)  |  Line 15290 (Page 340)  |  Line 15332 (Page 341)  |  Line 15338 (Page 341)
+  Line 15342 (Page 341)  |  Line 15344 (Page 341)  |  Line 15360 (Page 342)  |  Line 15361 (Page 342)
+  Line 15431 (Page 343)  |  Line 15450 (Page 344)  |  Line 15456 (Page 344)  |  Line 15491 (Page 345)
+  Line 15642 (Page 348)  |  Line 15772 (Page 351)  |  Line 15796 (Page 352)  |  Line 15812 (Page 352)
+  Line 15814 (Page 352)  |  Line 15815 (Page 352)  |  Line 15816 (Page 352)  |  Line 15942 (Page 355)
+  Line 15975 (Page 355)  |  Line 16002 (Page 356)  |  Line 16073 (Page 358)  |  Line 16074 (Page 358)
+  Line 16085 (Page 358)  |  Line 16125 (Page 359)  |  Line 16126 (Page 359)  |  Line 16127 (Page 359)
+  Line 16171 (Page 360)  |  Line 16220 (Page 361)  |  Line 16291 (Page 363)  |  Line 16312 (Page 363)
+  Line 16344 (Page 364)  |  Line 16348 (Page 364)  |  Line 16360 (Page 364)  |  Line 16375 (Page 364)
+  Line 16447 (Page 366)  |  Line 16482 (Page 367)  |  Line 16515 (Page 367)  |  Line 16517 (Page 368)
+  Line 16569 (Page 369)  |  Line 16582 (Page 369)  |  Line 16634 (Page 370)  |  Line 16640 (Page 370)
+  Line 16654 (Page 371)  |  Line 16719 (Page 372)  |  Line 16749 (Page 373)  |  Line 16772 (Page 373)
+  Line 16786 (Page 374)  |  Line 16841 (Page 375)  |  Line 16861 (Page 375)  |  Line 16871 (Page 375)
+  Line 16954 (Page 377)  |  Line 16970 (Page 378)  |  Line 16995 (Page 378)  |  Line 17018 (Page 379)
+  Line 17023 (Page 379)  |  Line 17054 (Page 379)  |  Line 17097 (Page 380)  |  Line 17108 (Page 381)
+  Line 17124 (Page 381)  |  Line 17165 (Page 382)  |  Line 17166 (Page 382)  |  Line 17231 (Page 383)
+  Line 17244 (Page 384)  |  Line 17262 (Page 384)  |  Line 17281 (Page 385)  |  Line 17343 (Page 386)
+  Line 17373 (Page 387)  |  Line 17382 (Page 387)  |  Line 17409 (Page 387)  |  Line 17479 (Page 389)
+  Line 17517 (Page 390)  |  Line 17552 (Page 391)  |  Line 17614 (Page 392)  |  Line 17619 (Page 392)
+  Line 17629 (Page 392)  |  Line 17652 (Page 393)  |  Line 17675 (Page 393)  |  Line 17677 (Page 393)
+  Line 17679 (Page 393)  |  Line 17694 (Page 394)  |  Line 17724 (Page 394)  |  Line 17726 (Page 394)
+  Line 17734 (Page 395)  |  Line 17754 (Page 395)  |  Line 17771 (Page 395)  |  Line 17790 (Page 396)
+  Line 17816 (Page 396)  |  Line 17869 (Page 398)  |  Line 17904 (Page 398)  |  Line 17967 (Page 400)
+  Line 17973 (Page 400)  |  Line 17985 (Page 400)  |  Line 17997 (Page 400)  |  Line 18002 (Page 401)
+  Line 18008 (Page 401)  |  Line 18013 (Page 401)  |  Line 18125 (Page 403)  |  Line 18132 (Page 403)
+  Line 18151 (Page 404)  |  Line 18171 (Page 404)  |  Line 18180 (Page 404)  |  Line 18181 (Page 405)
+  Line 18183 (Page 405)  |  Line 18184 (Page 405)  |  Line 18190 (Page 405)  |  Line 18265 (Page 406)
+  Line 18270 (Page 406)  |  Line 18274 (Page 407)  |  Line 18281 (Page 407)  |  Line 18371 (Page 409)
+  Line 18377 (Page 409)  |  Line 18379 (Page 409)  |  Line 18384 (Page 409)  |  Line 18385 (Page 409)
+  Line 18396 (Page 409)  |  Line 18415 (Page 410)  |  Line 18425 (Page 410)  |  Line 18446 (Page 410)
+  Line 18455 (Page 411)  |  Line 18539 (Page 412)  |  Line 18564 (Page 413)  |  Line 18572 (Page 413)
+  Line 18599 (Page 414)  |  Line 18729 (Page 417)  |  Line 18822 (Page 419)  |  Line 18830 (Page 419)
+  Line 18859 (Page 420)  |  Line 18866 (Page 420)  |  Line 18883 (Page 420)  |  Line 18899 (Page 420)
+  Line 18903 (Page 421)  |  Line 18913 (Page 421)  |  Line 18961 (Page 422)  |  Line 18962 (Page 422)
+  Line 18971 (Page 422)  |  Line 18998 (Page 423)  |  Line 18999 (Page 423)  |  Line 19002 (Page 423)
+  Line 19045 (Page 424)  |  Line 19072 (Page 424)  |  Line 19084 (Page 425)  |  Line 19123 (Page 425)
+  Line 19129 (Page 426)  |  Line 19152 (Page 426)  |  Line 19158 (Page 426)  |  Line 19200 (Page 427)
+  Line 19360 (Page 431)  |  Line 19434 (Page 432)  |  Line 19441 (Page 433)  |  Line 19474 (Page 433)
+  Line 19489 (Page 434)  |  Line 19505 (Page 434)  |  Line 19524 (Page 434)  |  Line 19595 (Page 436)
+  Line 19598 (Page 436)  |  Line 19614 (Page 436)  |  Line 19637 (Page 437)  |  Line 19641 (Page 437)
+  Line 19642 (Page 437)  |  Line 19656 (Page 437)  |  Line 19694 (Page 438)  |  Line 19720 (Page 439)
+  Line 19728 (Page 439)  |  Line 19885 (Page 442)  |  Line 19886 (Page 442)  |  Line 19899 (Page 443)
+  Line 19906 (Page 443)  |  Line 20001 (Page 445)  |  Line 20095 (Page 447)  |  Line 20096 (Page 447)
+  Line 20115 (Page 447)  |  Line 20116 (Page 448)  |  Line 20117 (Page 448)  |  Line 20140 (Page 448)
+  Line 20145 (Page 448)  |  Line 20156 (Page 448)  |  Line 20197 (Page 449)  |  Line 20202 (Page 449)
+  Line 20218 (Page 450)  |  Line 20229 (Page 450)  |  Line 20242 (Page 450)  |  Line 20264 (Page 451)
+  Line 20289 (Page 451)  |  Line 20309 (Page 452)  |  Line 20369 (Page 453)  |  Line 20389 (Page 454)
+1. View total word count
+2: View the # of unique words(non duplicate words)
+3: View the count of N specific most occuring words
+4: View the neighbors of a word
+5. Search similar words
+6: Search word by page range (Inverted Index)
+0: Exit
+What do you wanna do? 
+0

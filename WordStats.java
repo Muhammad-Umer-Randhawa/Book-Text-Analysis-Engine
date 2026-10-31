@@ -32,30 +32,22 @@ public class WordStats {
     }
 
     // Prints the n most used words with their counts.
-    // Time: O(n^2)
+    // Uses sorting instead of repeated full scans to keep the task faster.
     public void printTopWords(int n) {
-        ArrayList<String> picked = new ArrayList<>();
         ArrayList<String> keys = table.getKeys();
         if (n > keys.size())
             n = keys.size();
+
+        java.util.ArrayList<java.util.Map.Entry<String, Integer>> entries = new java.util.ArrayList<>();
+        for (String key : keys) {
+            entries.add(new java.util.AbstractMap.SimpleEntry<>(key, (Integer) table.get(key)));
+        }
+        entries.sort((a, b) -> b.getValue().compareTo(a.getValue()));
+
         for (int i = 0; i < n; i++) {
-            String bestWord = null;
-            int bestCount = 0;
-            for (String w : keys) {
-                if (picked.contains(w))
-                    continue;
-                Object a = table.get(w);
-                int count = (Integer) a;
-                if (count > bestCount) {
-                    bestWord = w;
-                    bestCount = count;
-                }
-            }
-            if (bestWord == null)
-                break;
-            picked.add(bestWord);
-            System.out.println("Most appeared word: " + bestWord);
-            System.out.println("It's count: " + bestCount);
+            java.util.Map.Entry<String, Integer> entry = entries.get(i);
+            System.out.println("Most appeared word: " + entry.getKey());
+            System.out.println("It's count: " + entry.getValue());
         }
     }
 
