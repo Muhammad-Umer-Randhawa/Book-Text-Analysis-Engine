@@ -1,7 +1,5 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
 
 // Task 5: Benchmarks build time and memory for each task, then
 // compares fast (Trie / InvertedIndex) vs slow (linear scan / raw scan).
@@ -14,8 +12,8 @@ public class Benchmarker {
     static NeighborIndex neighbors;
     static Trie trie;
     static InvertedIndex invertedIndex;
-    static Set<String> exactWordSet;
-    static Map<String, Set<Integer>> pageIndex;
+    // static Set<String> exactWordSet;
+    // static Map<String, Set<Integer>> pageIndex;
 
     static long memory() {
         Runtime r = Runtime.getRuntime();
@@ -43,7 +41,7 @@ public class Benchmarker {
         return sb.toString();
     }
 
-    // Faster page-range scan using a page map instead of walking the full token list.
+       // Raw scan: tokenizes every line in the page range and compares each word.
     static boolean rawScan(String word, int startPage, int endPage) {
        if (startPage < 1 || endPage < startPage) {
            return false;

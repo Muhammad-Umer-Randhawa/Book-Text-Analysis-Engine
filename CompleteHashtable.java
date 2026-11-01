@@ -1,4 +1,3 @@
-
 // this one uses open addressing (linear probing) to resolve collisions.
 import java.util.ArrayList;
 
@@ -99,35 +98,8 @@ public class CompleteHashtable {
         return null;
     }
 
-    public Object remove(Object key) {
-        int h = hash(key);
-        for (int i = 0; i < entries.length; i++) {
-            int j = nextProbe(h, i);
-            Entry entry = entries[j];
-            if (entry == null)
-                break;
-            if (entry == NIL)
-                continue;
-            if (entry.key.equals(key)) {
-                Object oldValue = entry.value;
-                entries[j] = NIL;
-                --size;
-                return oldValue;
-            }
-        }
-        return null;
-    }
-
     public int size() {
         return size;
-    }
-
-    public void printAll() {
-        for (int i = 0; i < entries.length; i++) {
-            if (entries[i] == null || entries[i] == NIL)
-                continue;
-            System.out.println(entries[i].key + " " + entries[i].value);
-        }
     }
 
     // Returns a list of all the keys stored in the table.

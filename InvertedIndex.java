@@ -19,6 +19,7 @@ public class InvertedIndex {
     public static final int LINES_PER_PAGE = 45;
 
     private AVLTree root; // root of the AVL tree (updated after every insert)
+    private int totalLines;
 
     // Reads the .txt file once and builds the full index.
     public InvertedIndex(String filePath) {
@@ -70,6 +71,10 @@ public class InvertedIndex {
         list.printAll(LINES_PER_PAGE);
     }
 
+    public int getTotalPages() {
+        return (totalLines + LINES_PER_PAGE - 1) / LINES_PER_PAGE;
+    }
+
     // Silent boolean version of searchInPageRange — used by Task 5 benchmarking
     // so the timed loop does not print 1000 lines to the console.
     // Time: average O(1) for the map lookup, plus a short scan over the matching lines.
@@ -107,6 +112,7 @@ public class InvertedIndex {
                     list.addLine(lineNumber);
                 }
             }
+            totalLines = lineNumber;
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + filePath);
         } catch (IOException e) {

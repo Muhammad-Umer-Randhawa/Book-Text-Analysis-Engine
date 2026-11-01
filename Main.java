@@ -152,7 +152,7 @@ public class Main {
         }
         String cleanWord = cleaned.get(0);
         if (choice.equals("a")) {
-            int totalPages = (int) Math.ceil(21_000.0 / InvertedIndex.LINES_PER_PAGE);
+            int totalPages = invertedIndex.getTotalPages();
             System.out.print("Start page (1-" + totalPages + "): ");
             int start = s.nextInt();
             System.out.print("End page   (1-" + totalPages + "): ");

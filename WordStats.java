@@ -1,4 +1,7 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
+// import java.util.AbstractMap;
+// import java.util.Map;
+import java.util.*;
 
 // Task 1: word count statistics.
 // Holds the word list and a hash table of word -> how many times it appears.
@@ -38,14 +41,14 @@ public class WordStats {
         if (n > keys.size())
             n = keys.size();
 
-        java.util.ArrayList<java.util.Map.Entry<String, Integer>> entries = new java.util.ArrayList<>();
+        ArrayList<Map.Entry<String, Integer>> entries = new ArrayList<>();
         for (String key : keys) {
-            entries.add(new java.util.AbstractMap.SimpleEntry<>(key, (Integer) table.get(key)));
+            entries.add(new AbstractMap.SimpleEntry<>(key, (Integer) table.get(key)));
         }
         entries.sort((a, b) -> b.getValue().compareTo(a.getValue()));
 
         for (int i = 0; i < n; i++) {
-            java.util.Map.Entry<String, Integer> entry = entries.get(i);
+            Map.Entry<String, Integer> entry = entries.get(i);
             System.out.println("Most appeared word: " + entry.getKey());
             System.out.println("It's count: " + entry.getValue());
         }
