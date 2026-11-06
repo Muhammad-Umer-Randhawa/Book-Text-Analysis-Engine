@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 // Task 5: Benchmarks build time and memory for each task, then
 // compares fast (Trie / InvertedIndex) vs slow (linear scan / raw scan).
@@ -71,7 +73,7 @@ public class Benchmarker {
         // ---- BUILD ----
         long[] m;
 
-        lines = new ArrayList<>(java.nio.file.Files.readAllLines(java.nio.file.Path.of(Main.FILE_PATH)));
+        lines = new ArrayList<>(Files.readAllLines(Path.of(Main.FILE_PATH)));
         m = startMeasure();
         words = BookLoader.readFile(Main.FILE_PATH);
         stats = new WordStats(words);

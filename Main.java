@@ -1,7 +1,5 @@
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 // Main only shows the menu, reads the input, and calls the class that does the work.
 //   BookLoader    -> reads and cleans the book
@@ -12,61 +10,29 @@ import java.util.Scanner;
 public class Main {
     static final String FILE_PATH = "D:\\DSA in JAVA 3rd SEM\\Project\\Book Text Analytics Engine\\Great_Expectations.txt";
     static Scanner s = new Scanner(System.in);
-    static ArrayList<String> words;
     static WordStats stats;
     static NeighborIndex neighbors;
     static Trie trie;
     static InvertedIndex invertedIndex;
 
     public static void main(String[] args) throws Exception {
-        if (System.getProperty("os.name").toLowerCase().contains("win")) { // This is the safety net for any other
-                                                                           // non-English character that console has
-                                                                           // trouble rendering
-            new ProcessBuilder("cmd", "/c", "chcp 65001 > nul").inheritIO().start().waitFor();
-        }
-        System.setOut(new PrintStream(System.out, true, "UTF-8"));
-        if (!loadBook())
-            return;
+        setupConsole();
+        if (!loadBook()) return;
         printBanner();
+
         boolean do_again = true;
         while (do_again) {
-            System.out.println("1. View total word count");
-            System.out.println("2: View the # of unique words(non duplicate words)");
-            System.out.println("3: View the count of N specific most occuring words");
-            System.out.println("4: View the neighbors of a word");
-            System.out.println("5. Search similar words");
-            System.out.println("6: Search word by page range (Inverted Index)");
-            System.out.println("0: Exit");
-            System.out.print("What do you wanna do? ");
-            System.out.println();
-
+            printMenu();
             try {
-                int choice = s.nextInt();
-                switch (choice) {
-                    case 1:
-                        showTotalWords();
-                        break;
-                    case 2:
-                        showUniqueWords();
-                        break;
-                    case 3:
-                        showTopWords();
-                        break;
-                    case 4:
-                        showNeighbors();
-                        break;
-                    case 5:
-                        searchSimilar();
-                        break;
-                    case 6:
-                        searchByPageRange();
-                        break;
-                    case 0:
-                        do_again = false;
-                        break;
-                    default:
-                        System.out.println("Invalid option, choose 0-6.");
-                        break;
+                switch (s.nextInt()) {
+                    case 1 -> showTotalWords();
+                    case 2 -> showUniqueWords();
+                    case 3 -> showTopWords();
+                    case 4 -> showNeighbors();
+                    case 5 -> searchSimilar();
+                    case 6 -> searchByPageRange();
+                    case 0 -> do_again = false;
+                    default -> System.out.println("Invalid option, choose 0-6.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Enter a valid number.");
@@ -76,16 +42,34 @@ public class Main {
         s.close();
     }
 
+    // Makes the console print UTF-8 correctly (safety net for non-English characters)
+    public static void setupConsole() throws Exception {
+        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            new ProcessBuilder("cmd", "/c", "chcp 65001 > nul").inheritIO().start().waitFor();
+        }
+        System.setOut(new PrintStream(System.out, true, "UTF-8"));
+    }
+
     public static void printBanner() {
         System.out.println("========================================================================");
         System.out.println("                      Book Text Analytics Engine                        ");
         System.out.println("========================================================================");
     }
 
-    // Loads the book and builds the structures once. Returns false if the file
-    // failed.
+    public static void printMenu() {
+        System.out.println("1. View total word count");
+        System.out.println("2: View the # of non-duplicate unique words");
+        System.out.println("3: View the count of (N) most occuring words");
+        System.out.println("4: View the neighbors of a word");
+        System.out.println("5. Search similar words");
+        System.out.println("6: Search word by page range");
+        System.out.println("0: Exit");
+        System.out.println("What do you wanna do? ");
+    }
+
+    // Loads the book and builds the structures once. Returns false if the file failed.
     public static boolean loadBook() {
-        words = BookLoader.readFile(FILE_PATH);
+        ArrayList<String> words = BookLoader.readFile(FILE_PATH);
         if (words.isEmpty()) {
             return false;
         }
@@ -99,6 +83,18 @@ public class Main {
         return true;
     }
 
+    // Asks for a word and cleans it the same way the book was cleaned.
+    // Returns null if nothing usable was typed.
+    public static String readWord() {
+        System.out.print("Enter a word: ");
+        ArrayList<String> cleaned = BookLoader.tokenize(s.next());
+        if (cleaned.isEmpty()) {
+            System.out.println("Invalid input.");
+            return null;
+        }
+        return cleaned.get(0);
+    }
+
     public static void showTotalWords() {
         System.out.println("Total words in the book: " + stats.getTotalWords());
     }
@@ -108,7 +104,7 @@ public class Main {
     }
 
     public static void showTopWords() {
-        System.out.print("How many Top most used words in the book you want? ");
+        System.out.print("How many Top most words do you want? ");
         int n = s.nextInt();
         if (n <= 0) {
             System.out.println("Enter a number greater than 0.");
@@ -118,14 +114,8 @@ public class Main {
     }
 
     public static void showNeighbors() {
-        System.out.print("Enter a word: ");
-        String w = s.next().toLowerCase();
-        ArrayList<String> cleaned = BookLoader.tokenize(w);
-        if (cleaned.isEmpty()) {
-            System.out.println("Wrong input");
-            return;
-        }
-        neighbors.getNeighbors(cleaned.get(0));
+        String w = readWord();
+        if (w != null) neighbors.getNeighbors(w);
     }
 
     public static void searchSimilar() {
@@ -136,36 +126,34 @@ public class Main {
         System.out.println(found);
     }
 
-    // Task 4: Inverted Index search.
-    // Sub-menu lets the user either search in a page range or see all occurrences.
+    // Task 4: sub-menu to search a word in a page range, or show all its occurrences.
     public static void searchByPageRange() {
         System.out.println("  a) Search word in a specific page range");
         System.out.println("  b) Show ALL occurrences of a word");
         System.out.print("Choice (a/b): ");
         String choice = s.next().toLowerCase();
-        System.out.print("Enter word: ");
-        String word = s.next().toLowerCase();
-        ArrayList<String> cleaned = BookLoader.tokenize(word);
-        if (cleaned.isEmpty()) {
-            System.out.println("Invalid input.");
+        if (!choice.equals("a") && !choice.equals("b")) {
+            System.out.println("Unknown choice.");
             return;
         }
-        String cleanWord = cleaned.get(0);
-        if (choice.equals("a")) {
-            int totalPages = invertedIndex.getTotalPages();
-            System.out.print("Start page (1-" + totalPages + "): ");
-            int start = s.nextInt();
-            System.out.print("End page   (1-" + totalPages + "): ");
-            int end = s.nextInt();
-            if (start < 1 || end < start) {
-                System.out.println("Invalid page range.");
-                return;
-            }
-            invertedIndex.searchInPageRange(cleanWord, start, end);
-        } else if (choice.equals("b")) {
-            invertedIndex.showAllOccurrences(cleanWord);
-        } else {
-            System.out.println("Unknown choice.");
+
+        String word = readWord();
+        if (word == null) return;
+
+        if (choice.equals("b")) {
+            invertedIndex.showAllOccurrences(word);
+            return;
         }
+
+        int totalPages = invertedIndex.getTotalPages();
+        System.out.print("Start page (1-" + totalPages + "): ");
+        int start = s.nextInt();
+        System.out.print("End page   (1-" + totalPages + "): ");
+        int end = s.nextInt();
+        if (start < 1 || end < start) {
+            System.out.println("Invalid page range.");
+            return;
+        }
+        invertedIndex.searchInPageRange(word, start, end);
     }
 }

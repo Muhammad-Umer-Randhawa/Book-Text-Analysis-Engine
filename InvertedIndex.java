@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class InvertedIndex {
 
     // 45 lines per page is a common estimate for a standard novel.
-    // Great Expectations has ~21 000 lines -> ~467 pages.
     public static final int LINES_PER_PAGE = 45;
 
     private AVLTree root; // root of the AVL tree (updated after every insert)
@@ -58,7 +57,7 @@ public class InvertedIndex {
         }
     }
 
-    // Bonus: shows every line (and page number) where the word appears in the full
+    // shows every line (and page number) where the word appears in the full
     // book.
     public void showAllOccurrences(String word) {
         Object found = root.get(word);
@@ -107,7 +106,7 @@ public class InvertedIndex {
                         list = new LineLinkedList();
                         root = root.grow(word, list);
                     } else {
-                        list = (LineLinkedList) existing;
+                        list = (LineLinkedList) existing; 
                     }
                     list.addLine(lineNumber);
                 }

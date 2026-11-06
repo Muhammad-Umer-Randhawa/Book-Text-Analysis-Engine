@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class CompleteHashtable {
     private class Entry {
         Object key;
-        Object value;
+        Object value;   
 
         Entry(Object k, Object v) {
             key = k;
